@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name" translatable="false">CashTrack</string>
+    <string name="hint_date">Enter Date</string>
+    <string name="hint_transaction_amount">Enter Transaction Amount</string>
+    <string name="hint_wallet_name">Enter Wallet Name</string>
+    <string name="hint_starting_balance">Enter Starting Balance</string>
+    <string name="hint_monthly_budget">Enter Monthly Budget</string>
+    <string name="choose_picture">Choose Picture</string>
+    <string name="transaction_amount">Amount</string>
+    <string name="no_transactions">No Transactions</string>
+    <string name="wallet_name">Name</string>
+    <string name="wallet_balance">Balance</string>
+    <string name="menu_save">Save</string>
+    <string name="nav_wallets">Wallets</string>
+    <string name="nav_profile">Profile</string>
+    <string name="transaction_date">Date</string>
+
+    <string name="add_transaction">Add Transaction</string>
+    <string name="add_wallet">Add Wallet</string>
+    <string name="profile">Profile</string>
+    <string name="transactions">Transactions</string>
+    <string name="wallets">Wallets</string>
+
+    <string name="insert_transaction_invalid_toast">Please insert a date and transaction amount</string>
+    <string name="insert_wallet_invalid_toast">Please insert a name, starting balance, and monthly balance</string>
+    <string name="gallery_permissions_explanation">You need to allow access in order to choose your profile picture</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="take_photo">Take Photo</string>
+    <string name="choose_from_gallery">Choose from Gallery</string>
+    <string name="transaction_saved">Transaction saved</string>
+    <string name="transaction_cancelled">Cancelled adding transaction</string>
+    <string name="wallet_saved">Wallet saved</string>
+    <string name="wallet_cancelled">Cancelled adding wallet</string>
+    <string name="wallets_exceed_5">Amount of wallets has exceeded 5</string>
+
+    <string name="wallet_service_title">Wallet Service</string>
+    <string name="wallet_service_text">Number of Wallets</string>
+</resources>

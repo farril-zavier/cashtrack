@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CashTrack</string>
+    <string name="hint_date">Masukkan Tanggal</string>
+    <string name="hint_transaction_amount">Masukkan Jumlah Transaksi</string>
+    <string name="hint_wallet_name">Masukkan Nama Dompet</string>
+    <string name="hint_starting_balance">Masukkan Saldo Awal</string>
+    <string name="hint_monthly_budget">Masukkan Anggaran Bulanan</string>
+    <string name="choose_picture">Pilih Foto</string>
+    <string name="transaction_amount">Jumlah</string>
+    <string name="transaction_date">Tanggal</string>
+    <string name="no_transactions">Transaksi Kosong</string>
+    <string name="wallet_name">Nama</string>
+    <string name="wallet_balance">Saldo</string>
+    <string name="menu_save">Simpan</string>
+    <string name="nav_wallets">Dompet</string>
+    <string name="nav_profile">Profil</string>
+    <string name="add_transaction">Tambah Transaksi</string>
+    <string name="add_wallet">Tambah Dompet</string>
+    <string name="profile">Profil</string>
+    <string name="transactions">Transaksi</string>
+    <string name="wallets">Dompet</string>
+    <string name="ok">OK</string>
+    <string name="insert_transaction_invalid_toast">Mohon masukkan tanggal dan jumlah transaksi</string>
+    <string name="insert_wallet_invalid_toast">Mohon masukkan nama dompet, saldo awal, dan anggaran bulanan</string>
+    <string name="gallery_permissions_explanation">Anda harus mengizinkan akses untuk memilih foto profil Anda</string>
+    <string name="cancel">Batal</string>
+    <string name="take_photo">Ambil Foto</string>
+    <string name="choose_from_gallery">Pilih dari Galeri</string>
+    <string name="transaction_saved">Transaksi tersimpan</string>
+    <string name="transaction_cancelled">Penambahan transaksi dibatalkan</string>
+    <string name="wallet_saved">Dompet disimpan</string>
+    <string name="wallet_cancelled">Penambahan dompet dibatalkan</string>
+    <string name="wallets_exceed_5">Jumlah dompet sudah mencapai 5</string>
+    <string name="wallet_service_title">Servis Dompet</string>
+    <string name="wallet_service_text">Jumlah Dompet</string>
+</resources>
