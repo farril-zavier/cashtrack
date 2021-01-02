@@ -40,4 +40,8 @@ public class WalletViewModel extends AndroidViewModel {
     public LiveData<List<Wallet>> getAllWallets() {
         return allWallets;
     }
+
+    public LiveData<Long> getSumAmount(int walletId) {
+        return repository.getSumAmount(walletId);
+    }
 }

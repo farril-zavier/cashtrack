@@ -34,4 +34,13 @@
     <string name="wallets_exceed_5">Jumlah dompet sudah mencapai 5</string>
     <string name="wallet_service_title">Servis Dompet</string>
     <string name="wallet_service_text">Jumlah Dompet</string>
+    <string name="nav_about">Info Aplikasi</string>
+    <string name="about_text">CashTrack adalah aplikasi Android yang dapat digunakan untuk men-track transaksi keuangan sehari-hari dari pengguna. Pengguna dapat membuat dompet yang berbeda-beda, sesuai dengan kebutuhan tracking transaksi pengguna.</string>
+    <string name="about_title">Tentang CashTrack</string>
+    <string name="about">Info Aplikasi</string>
+    <string name="notification_wallet_added">Dompet Berhasil Dibuat</string>
+    <string name="notification_wallet_info">berhasil ditambahkan!</string>
+    <string name="currency_rates">Kurs Mata Uang</string>
+    <string name="nav_currency">Mata Uang</string>
+    <string name="no_internet">Harap sambung ke Internet untuk mengakses fitur ini!</string>
 </resources>

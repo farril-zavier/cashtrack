@@ -100,6 +100,10 @@ public class AppRepository {
         return walletsWithTransactions;
     }
 
+    public LiveData<Long> getSumAmount(int walletId) {
+        return walletDao.getSumAmount(walletId);
+    }
+
     public LiveData<Integer> getUserCount() {
         return numUsers;
     }

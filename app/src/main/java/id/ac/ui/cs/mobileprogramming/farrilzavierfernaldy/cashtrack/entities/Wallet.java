@@ -47,4 +47,8 @@ public class Wallet {
     public void setId(int id) {
         this.id = id;
     }
+
+    public void setBalance(long balance) {
+        this.balance = balance;
+    }
 }

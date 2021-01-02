@@ -33,7 +33,7 @@ public class WalletService extends Service {
         PendingIntent pendingIntent = PendingIntent.getActivity(this,
                 0, notificationIntent, 0);
 
-        Notification notification = new NotificationCompat.Builder(this, App.CHANNEL_ID)
+        Notification notification = new NotificationCompat.Builder(this, App.CHANNEL_ID_1)
                 .setContentTitle(getResources().getString(R.string.wallet_service_title))
                 .setContentText(String.format("%s: %s", getResources().getString(R.string.wallet_service_text), numWalletsString))
                 .setSmallIcon(R.drawable.ic_launcher_foreground)

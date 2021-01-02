@@ -34,4 +34,13 @@
     <string name="wallets_exceed_5">Amount of wallets has exceeded 5</string>
     <string name="wallet_service_title">Wallet Service</string>
     <string name="wallet_service_text">Number of Wallets</string>
+    <string name="nav_about">About</string>
+    <string name="about_text">CashTrack is an Android application that helps track day-to-day financial transactions. CashTrack allows the user to create multiple wallets that can store different types of transactions, corresponding to the user\'s needs, thus providing a large degree of flexibility for the user.</string>
+    <string name="about_title">About CashTrack</string>
+    <string name="about">About</string>
+    <string name="notification_wallet_added">Wallet Added Successfully</string>
+    <string name="notification_wallet_info">has been successfully added!</string>
+    <string name="currency_rates">Currency Rates</string>
+    <string name="nav_currency">Currency</string>
+    <string name="no_internet">Please connect to the Internet in order to access this feature!</string>
 </resources>

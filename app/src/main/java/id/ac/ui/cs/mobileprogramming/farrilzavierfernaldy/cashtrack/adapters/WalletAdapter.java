@@ -42,6 +42,10 @@ public class WalletAdapter extends RecyclerView.Adapter<WalletAdapter.WalletHold
         return wallets.size();
     }
 
+    public List<Wallet> getWallets() {
+        return wallets;
+    }
+
     public void setWallets(List<Wallet> wallets) {
         this.wallets = wallets;
         notifyDataSetChanged();

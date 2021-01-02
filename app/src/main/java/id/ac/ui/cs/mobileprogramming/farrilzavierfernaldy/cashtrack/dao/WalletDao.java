@@ -37,4 +37,7 @@ public interface WalletDao {
     @Transaction
     @Query("SELECT * FROM wallet")
     LiveData<List<WalletWithTransactions>> getWalletsWithTransactions();
+
+    @Query("SELECT SUM(amount) FROM `transaction` WHERE walletId = :walletId")
+    LiveData<Long> getSumAmount(int walletId);
 }

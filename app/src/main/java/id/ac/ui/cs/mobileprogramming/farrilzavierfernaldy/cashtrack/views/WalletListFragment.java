@@ -1,8 +1,11 @@
 package id.ac.ui.cs.mobileprogramming.farrilzavierfernaldy.cashtrack.views;
 
 import android.app.Activity;
+import android.app.Notification;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +13,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
@@ -21,9 +26,12 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
+import id.ac.ui.cs.mobileprogramming.farrilzavierfernaldy.cashtrack.App;
+import id.ac.ui.cs.mobileprogramming.farrilzavierfernaldy.cashtrack.MainActivity;
 import id.ac.ui.cs.mobileprogramming.farrilzavierfernaldy.cashtrack.R;
 import id.ac.ui.cs.mobileprogramming.farrilzavierfernaldy.cashtrack.adapters.WalletAdapter;
 import id.ac.ui.cs.mobileprogramming.farrilzavierfernaldy.cashtrack.entities.Wallet;
+import id.ac.ui.cs.mobileprogramming.farrilzavierfernaldy.cashtrack.viewmodels.NumWalletsViewModel;
 import id.ac.ui.cs.mobileprogramming.farrilzavierfernaldy.cashtrack.viewmodels.WalletViewModel;
 
 public class WalletListFragment extends Fragment {
@@ -31,6 +39,12 @@ public class WalletListFragment extends Fragment {
     public static final int ADD_WALLET_REQUEST = 1;
 
     private WalletViewModel walletViewModel;
+
+    static {
+        System.loadLibrary("subtract");
+    }
+
+    public native long subtract(long minuend, long subtrahend);
 
     @Nullable
     @Override
@@ -56,8 +70,24 @@ public class WalletListFragment extends Fragment {
         walletViewModel = new ViewModelProvider(this).get(WalletViewModel.class);
         walletViewModel.getAllWallets().observe(getViewLifecycleOwner(), new Observer<List<Wallet>>() {
             @Override
-            public void onChanged(List<Wallet> wallets) {
+            public void onChanged(final List<Wallet> wallets) {
                 // update RecyclerView
+                for (final Wallet wallet : wallets) {
+                    Log.d("wallet id", String.valueOf(wallet.getId()));
+                    walletViewModel.getSumAmount(wallet.getId()).observe(getViewLifecycleOwner(), new Observer<Long>() {
+                        @Override
+                        public void onChanged(Long transactionSumAmount) {
+                            if (transactionSumAmount == null) {
+                                return;
+                            }
+                            Log.d("transaction sum amount", String.valueOf(transactionSumAmount));
+                            long diff = subtract(wallet.getBalance(), transactionSumAmount);
+                            wallet.setBalance(diff);
+                            walletAdapter.setWallets(wallets);
+                        }
+                    });
+                }
+                // send broadcast if wallets == 5
                 walletAdapter.setWallets(wallets);
                 if (wallets.size() == 5) {
                     Intent intent = new Intent("id.ac.ui.cs.mobileprogramming.farrilzavierfernaldy.cashtrack.WALLETS_EXCEED_5");
@@ -106,7 +136,22 @@ public class WalletListFragment extends Fragment {
             Wallet wallet = new Wallet(walletName, balance, monthlyBudget);
             walletViewModel.insert(wallet);
 
-            Toast.makeText(getContext(), getResources().getString(R.string.wallet_saved), Toast.LENGTH_SHORT).show();
+            Intent notificationIntent = new Intent(getContext(), MainActivity.class);
+            PendingIntent pendingIntent = PendingIntent.getActivity(getContext(),
+                    0, notificationIntent, 0);
+
+            Notification notification = new NotificationCompat.Builder(getContext(), App.CHANNEL_ID_2)
+                    .setContentTitle(getResources().getString(R.string.notification_wallet_added))
+                    .setContentText(String.format("%s %s", walletName, getResources().getString(R.string.notification_wallet_info)))
+                    .setSmallIcon(R.drawable.ic_launcher_foreground)
+                    .setPriority(NotificationCompat.PRIORITY_HIGH)
+                    .setContentIntent(pendingIntent)
+                    .setAutoCancel(true)
+                    .build();
+
+            NotificationManagerCompat notificationManager = NotificationManagerCompat.from(getContext());
+            notificationManager.notify(2, notification);
+//            Toast.makeText(getContext(), getResources().getString(R.string.wallet_saved), Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(getContext(), getResources().getString(R.string.wallet_cancelled), Toast.LENGTH_SHORT).show();
         }

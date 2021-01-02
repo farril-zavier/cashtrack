@@ -18,6 +18,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import id.ac.ui.cs.mobileprogramming.farrilzavierfernaldy.cashtrack.services.WalletService;
 import id.ac.ui.cs.mobileprogramming.farrilzavierfernaldy.cashtrack.viewmodels.NumWalletsViewModel;
+import id.ac.ui.cs.mobileprogramming.farrilzavierfernaldy.cashtrack.views.AboutFragment;
+import id.ac.ui.cs.mobileprogramming.farrilzavierfernaldy.cashtrack.views.CurrencyRatesFragment;
 import id.ac.ui.cs.mobileprogramming.farrilzavierfernaldy.cashtrack.views.ProfileActivity;
 import id.ac.ui.cs.mobileprogramming.farrilzavierfernaldy.cashtrack.views.ProfileFragment;
 import id.ac.ui.cs.mobileprogramming.farrilzavierfernaldy.cashtrack.views.WalletListFragment;
@@ -49,6 +51,16 @@ public class MainActivity extends AppCompatActivity {
                             .replace(R.id.main_fl_fragment, profileFragment)
                             .commit();
                     break;
+                case 3:
+                    AboutFragment aboutFragment = new AboutFragment();
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.main_fl_fragment, aboutFragment)
+                            .commit();
+                case 4:
+                    CurrencyRatesFragment currencyRatesFragment = new CurrencyRatesFragment();
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.main_fl_fragment, currencyRatesFragment)
+                            .commit();
                 default:
                     WalletListFragment walletListFragment = new WalletListFragment();
                     getSupportFragmentManager().beginTransaction()
@@ -95,6 +107,14 @@ public class MainActivity extends AppCompatActivity {
                                 startActivity(intent);
                                 return false;
                             }
+                            break;
+                        case R.id.nav_about:
+                            selectedNavItem = 3;
+                            selectedFragment = new AboutFragment();
+                            break;
+                        case R.id.nav_currency:
+                            selectedNavItem = 4;
+                            selectedFragment = new CurrencyRatesFragment();
                             break;
                     }
                     getSupportFragmentManager().beginTransaction()
